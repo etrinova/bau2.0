@@ -1,0 +1,320 @@
+/* style.css (Mantém o mesmo do protótipo anterior, com foco em modernidade) */
+
+:root {
+    --primary-blue: #007bff;
+    --dark-blue: #0056b3;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #343a40;
+    --success-green: #28a745;
+    --danger-red: #dc3545;
+    --text-color: #495057;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s ease;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.header-modern {
+    background-color: var(--primary-blue);
+    color: white;
+    width: 100%;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+.logo-modern {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.header-modern h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.header-modern p {
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.main-content-modern {
+    width: 90%;
+    max-width: 900px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.cardapio-hoje-modern, .relatorio-admin-modern {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--dark-blue);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--medium-gray);
+    padding-bottom: 15px;
+}
+
+.itens-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.item-merenda-card {
+    background-color: var(--light-gray);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.item-merenda-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item-merenda-card.selected {
+    border-color: var(--success-green);
+    background-color: #e6ffe6;
+    box-shadow: 0 0 0 3px var(--success-green), var(--box-shadow);
+}
+
+.item-merenda-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.item-merenda-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+.item-merenda-card::after {
+    content: '✔';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: var(--success-green);
+    display: none;
+    background-color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid var(--success-green);
+}
+
+.item-merenda-card.selected::after {
+    display: block;
+}
+
+
+.btn-modern {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow);
+}
+
+.btn-modern:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.confirmacao-modal-modern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    color: var(--success-green);
+    margin-bottom: 20px;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 2em;
+}
+
+.codigo-gerado {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.5em;
+    color: var(--dark-blue);
+    background-color: var(--medium-gray);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin: 25px 0;
+    letter-spacing: 2px;
+}
+
+.instrucao-codigo {
+    font-size: 1.1em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.close-modal {
+    background-color: var(--primary-blue);
+    max-width: 200px;
+}
+
+.close-modal:hover {
+    background-color: var(--dark-blue);
+}
+
+/* Relatório Admin */
+.relatorio-admin-modern {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 90%;
+    max-width: 900px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.relatorio-admin-modern p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: var(--dark-gray);
+}
+
+.relatorio-admin-modern span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 1.2em;
+}
+
+.admin-action-btn {
+    background-color: var(--danger-red);
+    margin-top: 25px;
+    max-width: 280px;
+}
+
+.admin-action-btn:hover {
+    background-color: #c82333;
+}
+
+.footer-modern {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: var(--dark-gray);
+    color: var(--medium-gray);
+    font-size: 0.9em;
+    margin-top: auto;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-modern h1 {
+        font-size: 1.8em;
+    }
+    .header-modern p {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .itens-grid-modern {
+        grid-template-columns: 1fr;
+    }
+    .item-merenda-card img {
+        width: 60px;
+        height: 60px;
+    }
+    .item-merenda-card p {
+        font-size: 1em;
+    }
+    .btn-modern {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+    .modal-content {
+        padding: 25px;
+    }
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+    .codigo-gerado {
+        font-size: 2.5em;
+    }
+    .instrucao-codigo {
+        font-size: 0.9em;
+    }
+}

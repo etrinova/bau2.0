@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baú da Merenda Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-modern">
+        <img src="logo_bau_merenda_modern.png" alt="Logo Baú da Merenda" class="logo-modern">
+        <h1>Baú da Merenda</h1>
+        <p>Sua merenda do seu jeito.</p>
+    </header>
+
+    <main class="main-content-modern">
+        <section class="cardapio-hoje-modern">
+            <h2>Monte seu Prato:</h2>
+            <div id="cardapio-itens-modern" class="itens-grid-modern">
+                </div>
+            <button id="confirmar-escolha-modern" class="btn-modern">Confirmar e Gerar Código</button>
+        </section>
+
+        <section class="confirmacao-modal-modern" id="confirmacao-modal" style="display:none;">
+            <div class="modal-content">
+                <h2>Seu Código de Merenda:</h2>
+                <p class="codigo-gerado" id="codigo-gerado"></p>
+                <p class="instrucao-codigo">Apresente este código para retirar sua merenda.</p>
+                <button class="btn-modern close-modal">OK</button>
+            </div>
+        </section>
+
+        <section class="relatorio-admin-modern" id="relatorio-admin" style="display:none;">
+            <h2>Relatório de Merenda do Dia</h2>
+            <div id="relatorio-contagem-modern">
+                </div>
+            <button id="gerar-relatorio-pdf-modern" class="btn-modern admin-action-btn">Gerar Relatório em PDF</button>
+        </section>
+    </main>
+
+    <footer class="footer-modern">
+        <p>&copy; 2025 Baú da Merenda. Inovação para uma alimentação consciente.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
